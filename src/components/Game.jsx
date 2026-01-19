@@ -1,10 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { gameAPI, leaderboardAPI } from '../services/Api';
-
-useEffect(() => {
-  console.log('API URL:', import.meta.env.VITE_API_URL);
-}, []);
 
 const Game = ({ playerName, mode, onBackToMenu }) => {
   const [gameState, setGameState] = useState({
@@ -17,6 +13,10 @@ const Game = ({ playerName, mode, onBackToMenu }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
+
+  useEffect(() => {
+    console.log('API URL:', import.meta.env.VITE_API_URL);
+  }, []);
 
   const moves = {
     1: { emoji: '🪨', name: 'Piedra' },
@@ -57,7 +57,7 @@ const Game = ({ playerName, mode, onBackToMenu }) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error al hacer la jugada');
+      alert('Error al hacer la jugada: ' + (error.message || 'Error desconocido'));
     } finally {
       setTimeout(() => setIsLoading(false), 500);
     }
