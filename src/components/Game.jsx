@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { gameAPI, leaderboardAPI } from '../services/Api';
 
+useEffect(() => {
+  console.log('API URL:', import.meta.env.VITE_API_URL);
+}, []);
+
 const Game = ({ playerName, mode, onBackToMenu }) => {
   const [gameState, setGameState] = useState({
     playerWins: 0,
