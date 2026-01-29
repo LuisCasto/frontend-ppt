@@ -14,9 +14,7 @@ const Game = ({ playerName, mode, onBackToMenu }) => {
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
 
-  useEffect(() => {
-    console.log('API URL:', import.meta.env.VITE_API_URL);
-  }, []);
+
 
   const moves = {
     1: { emoji: '🪨', name: 'Piedra' },
