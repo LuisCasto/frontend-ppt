@@ -7,12 +7,13 @@ const API_URL = import.meta.env.VITE_API_URL2;
  * Hook personalizado para despertar el backend antes de usar la app
  * @returns {Object} { isReady, error, retry }
  */
+//reload
 export const useWakeUpBackend = () => {
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState(null);
   const [attempts, setAttempts] = useState(0);
 
-  const MAX_ATTEMPTS = 5;
+  const MAX_ATTEMPTS = 4;
   const TIMEOUT = 60000; // 30 segundos
 
   const wakeUp = async () => {
